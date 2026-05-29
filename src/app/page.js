@@ -1,79 +1,39 @@
 import Link from "next/link";
-import { Playfair_Display, Space_Grotesk } from "next/font/google";
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
+import { playfair } from "./_components/brand-fonts";
+import SiteHeader from "./_components/site-header";
+import SiteShell from "./_components/site-shell";
 
 export default function Home() {
   return (
-    <div
-      className={`${spaceGrotesk.className} relative min-h-screen bg-[#f7f3ec] text-[#15152e]`}
-    >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,_rgba(0,0,77,0.22),_transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-0 right-[-120px] h-[380px] w-[380px] rounded-full bg-[radial-gradient(circle_at_center,_rgba(255,179,71,0.28),_transparent_70%)] blur-3xl" />
-        <div className="absolute left-[-120px] top-[40%] h-[280px] w-[280px] rounded-full bg-[radial-gradient(circle_at_center,_rgba(12,95,140,0.18),_transparent_70%)] blur-3xl" />
-      </div>
-
-      <header className="fixed left-0 right-0 top-0 z-50 bg-[#00004d] text-white shadow-[0_12px_30px_rgba(0,0,0,0.28)]">
-        <div className="mx-auto flex w-full max-w-6xl items-center gap-6 px-6 py-4 sm:px-10">
-          <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-xs font-semibold tracking-[0.35em]">
-              EE
-            </span>
-            <div className="leading-tight">
-              <p className="text-[10px] uppercase tracking-[0.45em] text-white/70">
-                Expert Electronic
-              </p>
-              <p className={`${playfair.className} text-lg font-semibold`}>
-                Signal Intelligence
-              </p>
-            </div>
-          </div>
-          <nav className="flex flex-1 items-center justify-end gap-5 text-[11px] font-semibold uppercase tracking-[0.3em] text-white/80 sm:gap-7">
-            <Link className="transition hover:text-white" href="/">
-              Home
-            </Link>
-            <Link className="transition hover:text-white" href="/solutions">
-              Solutions
-            </Link>
-            <Link className="transition hover:text-white" href="/labs">
-              Labs
-            </Link>
-            <Link className="transition hover:text-white" href="/insights">
-              Insights
-            </Link>
-            <Link className="transition hover:text-white" href="/contact">
-              Contact
-            </Link>
-          </nav>
-        </div>
-      </header>
-
+    <SiteShell>
+      <SiteHeader />
       <main className="relative pt-28">
         <section className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 pb-16 pt-10 sm:px-10 lg:flex-row lg:items-center">
           <div className="flex-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#00004d]/70">
+            <p
+              className="text-xs font-semibold uppercase tracking-[0.4em] text-[#00004d]/70 animate-fade-up"
+              style={{ animationDelay: "0ms" }}
+            >
               Precision Electronics Studio
             </p>
             <h1
-              className={`${playfair.className} mt-5 text-4xl font-semibold leading-tight text-[#0c0c2a] sm:text-5xl lg:text-6xl`}
+              className={`${playfair.className} mt-5 text-4xl font-semibold leading-tight text-[#0c0c2a] sm:text-5xl lg:text-6xl animate-fade-up`}
+              style={{ animationDelay: "90ms" }}
             >
               Calibrate every signal, capture every insight.
             </h1>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-[#3d3d5f]">
+            <p
+              className="mt-5 max-w-xl text-lg leading-8 text-[#3d3d5f] animate-fade-up"
+              style={{ animationDelay: "170ms" }}
+            >
               Expert Electronic crafts diagnostic platforms for labs, clean rooms,
               and field teams who cannot afford drift. We align hardware,
               firmware, and data so measurements stay trusted under pressure.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div
+              className="mt-8 flex flex-col gap-3 sm:flex-row animate-fade-up"
+              style={{ animationDelay: "250ms" }}
+            >
               <Link
                 className="rounded-full bg-[#00004d] px-6 py-3 text-xs font-semibold uppercase tracking-[0.32em] text-white transition hover:bg-[#000066]"
                 href="/contact"
@@ -82,12 +42,15 @@ export default function Home() {
               </Link>
               <Link
                 className="rounded-full border border-[#00004d]/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.32em] text-[#00004d] transition hover:border-[#00004d]/50"
-                href="/catalog"
+                href="/products"
               >
                 Browse Catalog
               </Link>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-8 text-sm text-[#52526f]">
+            <div
+              className="mt-10 flex flex-wrap items-center gap-8 text-sm text-[#52526f] animate-fade-up"
+              style={{ animationDelay: "330ms" }}
+            >
               <div>
                 <p className="text-2xl font-semibold text-[#00004d]">24h</p>
                 <p>Calibration turnaround</p>
@@ -104,7 +67,10 @@ export default function Home() {
           </div>
 
           <div className="flex-1">
-            <div className="relative overflow-hidden rounded-[32px] border border-white/60 bg-white/80 p-8 shadow-[0_25px_70px_rgba(0,0,77,0.18)] backdrop-blur">
+            <div
+              className="relative overflow-hidden rounded-[32px] border border-white/60 bg-white/80 p-8 shadow-[0_25px_70px_rgba(0,0,77,0.18)] backdrop-blur animate-fade-up"
+              style={{ animationDelay: "210ms" }}
+            >
               <div className="absolute right-8 top-8 h-24 w-24 rounded-full bg-[#ffb347]/40 blur-2xl" />
               <div className="absolute bottom-6 left-6 h-28 w-28 rounded-full bg-[#0c5f8c]/25 blur-2xl" />
               <div className="relative">
@@ -165,7 +131,7 @@ export default function Home() {
         </section>
 
         <section className="mx-auto w-full max-w-6xl px-6 pb-16 sm:px-10">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-3 animate-fade-up" style={{ animationDelay: "0ms" }}>
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#00004d]/70">
               Why Expert Electronic
             </p>
@@ -176,7 +142,10 @@ export default function Home() {
             </h2>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
-            <div className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-[0_18px_40px_rgba(0,0,77,0.12)]">
+            <div
+              className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-[0_18px_40px_rgba(0,0,77,0.12)] animate-fade-up"
+              style={{ animationDelay: "120ms" }}
+            >
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#00004d]/70">
                 Co-Design
               </p>
@@ -188,7 +157,10 @@ export default function Home() {
                 focused on results not rework.
               </p>
             </div>
-            <div className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-[0_18px_40px_rgba(0,0,77,0.12)]">
+            <div
+              className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-[0_18px_40px_rgba(0,0,77,0.12)] animate-fade-up"
+              style={{ animationDelay: "200ms" }}
+            >
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#00004d]/70">
                 Validation
               </p>
@@ -200,7 +172,10 @@ export default function Home() {
                 stays reliable between scheduled checks.
               </p>
             </div>
-            <div className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-[0_18px_40px_rgba(0,0,77,0.12)]">
+            <div
+              className="rounded-3xl border border-white/70 bg-white/70 p-6 shadow-[0_18px_40px_rgba(0,0,77,0.12)] animate-fade-up"
+              style={{ animationDelay: "280ms" }}
+            >
               <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[#00004d]/70">
                 Support
               </p>
@@ -216,7 +191,10 @@ export default function Home() {
         </section>
 
         <section className="mx-auto w-full max-w-6xl px-6 pb-24 sm:px-10">
-          <div className="rounded-[36px] border border-white/70 bg-[#0f102c] p-8 text-white shadow-[0_25px_70px_rgba(0,0,77,0.3)] sm:p-12">
+          <div
+            className="rounded-[36px] border border-white/70 bg-[#0f102c] p-8 text-white shadow-[0_25px_70px_rgba(0,0,77,0.3)] sm:p-12 animate-fade-up"
+            style={{ animationDelay: "160ms" }}
+          >
             <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
@@ -240,6 +218,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-    </div>
+    </SiteShell>
   );
 }

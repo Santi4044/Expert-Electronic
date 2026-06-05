@@ -3,6 +3,9 @@ export async function onRequestPost(context) {
     const body = await context.request.json();
     const { fullName, email, company, topic, message } = body;
 
+    console.log("Form received:", { fullName, email, topic });
+    console.log("API key exists:", !!context.env.RESEND_API_KEY);
+
     if (!fullName || !email || !message) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), {
         status: 400,
@@ -32,9 +35,12 @@ export async function onRequestPost(context) {
       }),
     });
 
+    const resBody = await res.text();
+    console.log("Resend status:", res.status);
+    console.log("Resend response:", resBody);
+
     if (!res.ok) {
-      const error = await res.text();
-      return new Response(JSON.stringify({ error }), {
+      return new Response(JSON.stringify({ error: resBody }), {
         status: 500,
         headers: { "Content-Type": "application/json" },
       });
@@ -45,6 +51,7 @@ export async function onRequestPost(context) {
       headers: { "Content-Type": "application/json" },
     });
   } catch (err) {
+    console.log("Exception:", err.message);
     return new Response(JSON.stringify({ error: err.message }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
